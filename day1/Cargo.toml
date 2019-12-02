@@ -1,0 +1,5 @@
+[package]
+
+name = "fuel_req"
+version = "0.0.1"
+authors = [ "Tyler Moroso <tlmoroso55@gmail.com>" ]
