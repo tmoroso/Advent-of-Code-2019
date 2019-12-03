@@ -1,8 +1,8 @@
 use std::fs::File;
-// use std::io;
+use std::process::exit;
 use std::io::prelude::*;
 
-fn main() {
+fn execute_program(noun: usize, verb: usize) -> usize {
     const EXIT: usize = 99;
     let mut f = File::open("./input.txt").unwrap();
     let mut str_buf = String::new();
@@ -12,8 +12,8 @@ fn main() {
     let mut opcode: usize = 0;
     let mut index: usize = 0;
 
-    numbers[1] = 12;
-    numbers[2] = 2;
+    numbers[1] = noun;
+    numbers[2] = verb;
     while opcode != EXIT {
         opcode = numbers[index];
         match opcode {
@@ -34,5 +34,20 @@ fn main() {
         }
         index += 4;
     }
-    println!("Position 0: {}", numbers[0]);
+
+    return numbers[0];
+}
+
+fn main() {
+    const DESIRED_OUT: usize = 19690720;
+
+    for n in 0..100 {
+        for v in 0..100 {
+            let output = execute_program(n, v);
+            if output == DESIRED_OUT {
+                println!("100 * noun + verb = {}", (100*n) + v);
+                exit(0);
+            }
+        }
+    }
 }
