@@ -1,0 +1,5 @@
+[package]
+
+name = "Intcode Computer"
+version = "0.0.2"
+authors = [ "Tyler Moroso <tlmoroso55@gmail.com>" ]
