@@ -1,3 +1,4 @@
 *.exe
 **/target
 *.lock
+id_rsa*
